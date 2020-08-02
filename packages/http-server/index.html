@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Monitoring</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font: 13px Helvetica, Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function () {
+        var socket = io();
+        socket.on('default', function (msg) {
+          console.log(msg);
+          $('#message').append(`<p>${msg}</p>`);
+        });
+      });
+    </script>
+  </body>
+</html>
